@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+        integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+        integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Wedding Planner</title>
+</head>
+<style>
+    .dark-mode {
+    background-color: grey;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    line-height: 1.7;
+    }
+
+    .dark-mode .footer-top{
+    background-color: grey;
+    }
+
+    .dark-mode .calculator table {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  
+        .dark-mode .calculator input[type="button"] {
+            width: 100%;
+            padding: 20px 40px;
+            background-color:black;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+  
+        .dark-mode .calculator input[type="text"] {
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+
+</style>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+<button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+        
+  <i class="fas fa-arrow-up"></i>
+</button>
+    <!-- BOTTOM NAV -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bridal Couture<span class="dot">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking-form.html">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                </ul>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Contact</a>
+                <button  class="btn btn-brand ms-lg-3" onclick="myFunction()">Blind Color User</button>
+                
+
+            </div>
+        </div>
+    </nav>
+    <section id="services" class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="intro">
+                        <h2>Book Your Slot Now!!!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <section id="form">
+    <div class="container-fluid">
+    <form class="needs-validation" novalidate>
+        <div class="row justify-content-center">
+          <div class="col-md-6 mb-3">
+            <label for="validationCustom01"><b> First name</b></label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="" required>
+            <div class="invalid-feedback">
+              Please provide a first name.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationCustom02"><b>Last name</b> </label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="" required>
+            <div class="invalid-feedback">
+              Please provide a last name.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress"><b>Address</b></label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Unit/Street" required>
+            <div class="invalid-feedback">
+              Please provide address.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2"><b> Address 2</b></label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+            <div class="invalid-feedback">
+              Please provide address.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom02"><b>City</b></label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="City" value="" required>
+                <div class="invalid-feedback">
+                  Please provide city.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02"><b> State</b></label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="State" value="" required>
+                <div class="invalid-feedback">
+                  Please provide state.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02"><b> Zip Code</b></label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Zip Code" value="" required>
+                <div class="invalid-feedback">
+                  Please provide zip code.
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom02"><b>Phone</b> </label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Phone" value="" required>
+                <div class="invalid-feedback">
+                  Please provide a valid phone number.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02"><b>Email </b></label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Email" value="" required>
+                <div class="invalid-feedback">
+                  Please provide a valid email.
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2"><b>Wedding Date</b></label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Wedding Date" required>
+            <div class="invalid-feedback">
+              Please provide a valid date.
+            </div>
+          </div>
+          <br>
+          
+          <!--
+          <div class="row">
+            <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 mb-3">
+            <p>The form below contains three radio buttons. The first option is checked by default, and the last option is disabled:</p>
+            <form action="/action_page.php">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+            </form>
+          </div>
+          </div>
+          <br>
+          <br>-->
+          
+        <div class="form-group">
+            <div class="row">
+             <div class="col-md-6 mb-3">
+                <p><b> Wedding Venue:</b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Baywater KLCC</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Brickhouse Kuala Lumpur</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Boathouse</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Rennaisance Kuala Lumpur Hotel</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Wedding Venue and Decoration: </b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Garden | 1000pax - RM 46,000 | 500 px - RM 36,000 | 300 px - RM 28,000</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Traditional | 1000pax - RM 42,000 | 500 px - RM 34,500 | 300 px - RM 25,000</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Minimalistic | 1000pax - RM 40,000 | 500 px - RM 32,000 | 300 px - RM 23,000</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Colourful |1000pax - RM 38,000 | 500 px - RM 29,000 | 300 px - RM 21,000</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Modern | 1000pax - RM 50,000 | 500 px -RM 44,000 | 300 px - RM 31,000</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Catering Package:</b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Package Bronze A | RM 6.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Bronze B | RM 8.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Silver A | RM 10.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Silver B | RM 11.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Silver C | RM 12.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Gold A | RM 15.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Gold B | RM 17.90/Per pax</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Package Gold C | RM 19.90/Per pax</label>
+                  </div>
+                  
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Wedding Emcee: </b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Evelynn | RM 3350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Fateen | RM 2500</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Ady | RM 2250</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Videography Package:</b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Ophelia | 1 Event | RM 1200</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Ophelia | 2 Event | RM 1850</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Ophelia | 3 Event | RM 2400</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Stella | 1 Event | RM 2100</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Stella | 2 Event | RM 3300</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Stella | 3 Event | RM 4600</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Photography Package:</b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Florence | 1 Event | RM 1300</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Florence | 2 Event | RM 1850</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Florence | 3 Event | RM 2500</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Serena | 1 Event | RM 1000</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Serena | 2 Event | RM 1500</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Serena | 3 Event | RM 2100</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Wedding Dress: </b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Puteri Gunung Ledang | RM 800</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Dayang Senandung | RM 800</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Marina | RM 500</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Puteri Lindungan Bulan | RM 950</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Kadeeja | RM 700</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Srikandi | RM 800</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Maya | RM 800</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Cik Siti Wan Kembang | RM 800</label>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p><b>Wedding Makeup: </b></p>
+                <form action="/action_page.php">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                    <label class="form-check-label" for="radio1">Natural Fresh Look | RM 350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Natural Glam Looks | RM 350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Barbie Doll Looks | RM 350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Thailand Bride Looks | RM 350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Arabian Bride Looks | RM 450</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Indian Bride Looks | RM 450</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Classic Bride Looks | RM 350</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Bold Makeup Looks | RM 450</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+                    <label class="form-check-label" for="radio2">Soft Gold Looks | RM 350</label>
+                  </div>
+                </form>
+              </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-danger" type="submit">Submit form</button>
+      </form>
+      </div>
+      </section>
+
+     
+     <div class="row">
+        <div class="col-12">
+            <div class="intro">
+                <h2>You Can Calculate Your Budget Here.</h2>
+            </div>
+        </div>
+    </div>
+      
+
+      <section class="calculator">
+      <table id="calcu">
+        <tr>
+            <td colspan="3"><input type="text" id="result"></td>
+            <!-- clr() function will call clr to clear all value -->
+            <td><input type="button" value="c" onclick="clr()" /> </td>
+        </tr>
+        <tr>
+            <!-- create button and assign value to each button -->
+            <!-- dis("1") will call function dis to display value -->
+            <td><input type="button" value="1" onclick="dis('1')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="2" onclick="dis('2')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="3" onclick="dis('3')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="/" onclick="dis('/')" 
+                        onkeydown="myFunction(event)"> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="dis('4')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="5" onclick="dis('5')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="6" onclick="dis('6')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="" onclick="dis('')" 
+                        onkeydown="myFunction(event)"> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="dis('7')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="8" onclick="dis('8')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="9" onclick="dis('9')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="-" onclick="dis('-')"
+                        onkeydown="myFunction(event)"> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="dis('0')" 
+                        onkeydown="myFunction(event)"> </td>
+            <td><input type="button" value="." onclick="dis('.')" 
+                        onkeydown="myFunction(event)"> </td>
+            <!-- solve function call function solve to evaluate value -->
+            <td><input type="button" value="=" onclick="solve()"> </td>
+  
+            <td><input type="button" value="+" onclick="dis('+')" 
+                        onkeydown="myFunction(event)"> </td>
+        </tr>
+    </table>
+</section>
+  
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <img class="logo" src="img/logo-white.svg" alt="">
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">Brand</h5>
+                        <br>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About</a></li>
+                            <br>
+                            <li><a href="#">Services</a></li>
+                            <br>
+                            <li><a href="#">Features</a></li>
+                            <br>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div  class="col-lg-2">
+                        <h5 class="text-white">More</h5>
+                        <br>
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ's</a></li>
+                            <br>
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <br>
+                            <li><a href="#">Warranty</a></li>
+                            <br>
+                            <li><a href="#">Shipment</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Contact</h5>
+                        <ul class="list-unstyled">
+                            <li style="color:white">Address: Bridal Couture Sdn. Bhd. 16, Jalan SS15/2B,
+                                Subang Jaya,
+                                47500 Petaling Jaya,
+                                Selangor, Malaysia.</li>
+                            <br>
+                            <li style="color:white">Email: Bridalcouture@gmail.com</li>
+                            <br>
+                            <li style="color:white">Phone: +60778965</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div style="color:beige" class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">© 2023 copyright all right reserved   |   Designed with <i
+                            class="bx bx-heart text-danger"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row gy-4">
+                            <div class="col-lg-4 col-sm-12 bg-cover"
+                                style="background-image: url(img/modal.jpg); min-height:300px;">
+                                <div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <form class="p-lg-5 col-12 row g-3">
+                                    <div>
+                                        <h1>Get in touch</h1>
+                                    <p>Fell free to contact us and we will get back to you as soon as possible</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="userName" class="form-label">First name</label>
+                                        <input type="text" class="form-control" placeholder="Jon" id="userName"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="userName" class="form-label">Last name</label>
+                                        <input type="text" class="form-control" placeholder="Doe" id="userName"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="userName" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" placeholder="Johndoe@example.com" id="userName"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="exampleInputEmail1" class="form-label">Enter Message</label>
+                                        <textarea name="" placeholder="This is looking great and nice." class="form-control" id=""  rows="4"></textarea>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-brand">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
+
+<script>
+    // Function that display value
+    function dis(val) {
+        document.getElementById("result").value += val
+    }
+
+    function myFunction(event) {
+        if (event.key == '0' || event.key == '1' 
+            || event.key == '2' || event.key == '3'
+            || event.key == '4' || event.key == '5' 
+            || event.key == '6' || event.key == '7'
+            || event.key == '8' || event.key == '9' 
+            || event.key == '+' || event.key == '-'
+            || event.key == '*' || event.key == '/')
+            document.getElementById("result").value += event.key;
+    }
+
+    var cal = document.getElementById("calcu");
+    cal.onkeyup = function (event) {
+        if (event.keyCode === 13) {
+            console.log("Enter");
+            let x = document.getElementById("result").value
+            console.log(x);
+            solve();
+        }
+    }
+
+    // Function that evaluates the digit and return result
+    function solve() {
+        let x = document.getElementById("result").value
+        let y = math.evaluate(x)
+        document.getElementById("result").value = y
+    }
+
+    // Function that clear the display
+    function clr() {
+        document.getElementById("result").value = ""
+    }
+    
+</script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/app.js"></script>
+    <script lang="Javascript"></script>
+    <script>
+        function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+         }
+        </script>
